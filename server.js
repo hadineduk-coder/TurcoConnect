@@ -60,6 +60,11 @@ function tryMatch() {
     const u1 = users.get(id1);
     const u2 = users.get(id2);
 
+    if (id1 === id2) {
+      if (u1 && u1.status === 'waiting') waitQueue.unshift(id1);
+      continue;
+    }
+
     // Check both still connected & waiting
     if (!u1 || u1.status !== 'waiting') {
       if (u2 && u2.status === 'waiting') waitQueue.unshift(id2);
@@ -136,7 +141,9 @@ io.on('connection', (socket) => {
     const u = users.get(socket.id);
     if (!u) return;
     u.status = 'waiting';
-    waitQueue.push(socket.id);
+    if (!waitQueue.includes(socket.id)) {
+      waitQueue.push(socket.id);
+    }
     console.log(`🔍 Searching: ${u.name}`);
     broadcastAdmin();
     tryMatch();
