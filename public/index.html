@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Turco Connect MX - Conoce personas nuevas de forma totalmente anónima.">
+  <title>Turco Connect MX — Chat Anónimo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ============================== -->
+  <!-- SCREEN 1 — LOGIN               -->
+  <!-- ============================== -->
+  <section class="screen screen-login active" id="screen-login">
+    <div class="bg-images">
+      <div class="bg-img bg-img-1" style="background-image:url('bg-landmarks.png')"></div>
+      <div class="bg-img bg-img-2" style="background-image:url('bg-culture.png')"></div>
+      <div class="bg-overlay"></div>
+    </div>
+    <div class="bg-particles" id="bg-particles"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <main class="container">
+      <div class="card" id="main-card">
+        <div class="logo-wrapper">
+          <div class="logo-icon">
+            <svg viewBox="0 0 80 80" fill="none">
+              <defs>
+                <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#00e676"/><stop offset="100%" stop-color="#00bfa5"/>
+                </linearGradient>
+                <linearGradient id="bubbleGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#69f0ae"/><stop offset="100%" stop-color="#00e676"/>
+                </linearGradient>
+              </defs>
+              <rect x="8" y="12" width="38" height="28" rx="14" fill="url(#logoGrad)" opacity="0.9"/>
+              <circle cx="19" cy="26" r="3" fill="#0a1628"/><circle cx="27" cy="26" r="3" fill="#0a1628"/><circle cx="35" cy="26" r="3" fill="#0a1628"/>
+              <polygon points="14,40 22,40 14,50" fill="url(#logoGrad)" opacity="0.9"/>
+              <rect x="34" y="32" width="38" height="28" rx="14" fill="url(#bubbleGrad)" opacity="0.7"/>
+              <circle cx="45" cy="46" r="3" fill="#0a1628"/><circle cx="53" cy="46" r="3" fill="#0a1628"/><circle cx="61" cy="46" r="3" fill="#0a1628"/>
+              <polygon points="64,60 56,60 64,70" fill="url(#bubbleGrad)" opacity="0.7"/>
+              <circle cx="40" cy="38" r="5" fill="#fff" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <div class="logo-glow"></div>
+        </div>
+
+        <h1 class="app-title">
+          <span class="title-turco">TURCO</span>
+          <span class="title-connect">CONNECT</span>
+          <span class="title-mx">MX</span>
+        </h1>
+        <p class="tagline">Conoce personas nuevas de forma totalmente anónima.</p>
+        <div class="divider"><span class="divider-dot"></span><span class="divider-line"></span><span class="divider-dot"></span></div>
+
+        <form id="connect-form" class="form" novalidate>
+          <!-- Name -->
+          <div class="input-group" id="input-group-name">
+            <label for="input-name" class="input-label">Nombre o Apodo</label>
+            <div class="input-wrapper">
+              <span class="input-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+              <input type="text" id="input-name" class="input-field" placeholder="¿Cómo te llaman?" maxlength="30" autocomplete="off">
+              <span class="input-check" id="check-name">✓</span>
+            </div>
+          </div>
+          <!-- Age -->
+          <div class="input-group" id="input-group-age">
+            <label for="input-age" class="input-label">Edad</label>
+            <div class="input-wrapper">
+              <span class="input-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+              <input type="number" id="input-age" class="input-field" placeholder="Tu edad" min="13" max="99" autocomplete="off">
+              <span class="input-check" id="check-age">✓</span>
+            </div>
+          </div>
+          <!-- Gender -->
+          <div class="input-group" id="input-group-gender">
+            <label class="input-label">Género</label>
+            <div class="gender-selector">
+              <button type="button" class="gender-btn" id="btn-hombre" data-gender="hombre">
+                <span class="gender-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="14.5" r="6.5"/><line x1="15.1" y1="9.9" x2="21" y2="4"/><polyline points="16 4 21 4 21 9"/></svg></span>
+                <span class="gender-label">Hombre</span>
+              </button>
+              <button type="button" class="gender-btn" id="btn-mujer" data-gender="mujer">
+                <span class="gender-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.5"/><line x1="12" y1="15.5" x2="12" y2="22"/><line x1="9" y1="19" x2="15" y2="19"/></svg></span>
+                <span class="gender-label">Mujer</span>
+              </button>
+            </div>
+            <input type="hidden" id="input-gender" value="">
+          </div>
+          <!-- Estado -->
+          <div class="input-group" id="input-group-city">
+            <label for="input-city" class="input-label">Estado</label>
+            <div class="input-wrapper">
+              <span class="input-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <select id="input-city" class="input-field input-select">
+                <option value="" disabled selected>Selecciona tu estado</option>
+                <optgroup label="Centro">
+                  <option value="cdmx">Ciudad de México (CDMX)</option>
+                  <option value="edomex">Estado de México</option>
+                  <option value="puebla">Puebla</option>
+                  <option value="tlaxcala">Tlaxcala</option>
+                  <option value="morelos">Morelos</option>
+                  <option value="hidalgo">Hidalgo</option>
+                  <option value="queretaro">Querétaro</option>
+                </optgroup>
+                <optgroup label="Occidente">
+                  <option value="jalisco">Jalisco (Guadalajara)</option>
+                  <option value="michoacan">Michoacán</option>
+                  <option value="colima">Colima</option>
+                  <option value="nayarit">Nayarit</option>
+                  <option value="aguascalientes">Aguascalientes</option>
+                  <option value="guanajuato">Guanajuato</option>
+                  <option value="zacatecas">Zacatecas</option>
+                  <option value="san_luis_potosi">San Luis Potosí</option>
+                </optgroup>
+                <optgroup label="Norte">
+                  <option value="nuevo_leon">Nuevo León (Monterrey)</option>
+                  <option value="coahuila">Coahuila</option>
+                  <option value="chihuahua">Chihuahua</option>
+                  <option value="sonora">Sonora</option>
+                  <option value="tamaulipas">Tamaulipas</option>
+                  <option value="durango">Durango</option>
+                  <option value="sinaloa">Sinaloa</option>
+                  <option value="baja_california">Baja California</option>
+                  <option value="baja_california_sur">Baja California Sur</option>
+                </optgroup>
+                <optgroup label="Sur / Sureste">
+                  <option value="oaxaca">Oaxaca</option>
+                  <option value="guerrero">Guerrero (Acapulco)</option>
+                  <option value="chiapas">Chiapas</option>
+                  <option value="veracruz">Veracruz</option>
+                  <option value="tabasco">Tabasco</option>
+                  <option value="campeche">Campeche</option>
+                  <option value="yucatan">Yucatán (Mérida)</option>
+                  <option value="quintana_roo">Quintana Roo (Cancún)</option>
+                </optgroup>
+              </select>
+              <span class="input-check" id="check-city">✓</span>
+            </div>
+          </div>
+
+          <div class="error-message" id="error-message" role="alert">
+            <span class="error-icon">⚠️</span>
+            <span>Por favor completa todos los campos para continuar.</span>
+          </div>
+
+          <button type="submit" class="btn-search" id="btn-search">
+            <span class="btn-pulse"></span>
+            <span class="btn-content">
+              <span class="btn-circle-icon">🟢</span>
+              <span>Buscar conversación</span>
+            </span>
+          </button>
+        </form>
+        <p class="footer-hint">🔒 Tu identidad siempre será anónima</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============================== -->
+  <!-- SCREEN 2 — SEARCHING            -->
+  <!-- ============================== -->
+  <section class="screen screen-searching" id="screen-searching">
+    <div class="search-bg"></div>
+    <div class="search-content">
+      <div class="search-radar">
+        <div class="radar-ring radar-ring-1"></div>
+        <div class="radar-ring radar-ring-2"></div>
+        <div class="radar-ring radar-ring-3"></div>
+        <div class="radar-dot"></div>
+      </div>
+      <h2 class="search-title">Buscando conversación...</h2>
+      <p class="search-sub" id="search-sub">Esperando a otro usuario</p>
+      <div class="search-dots"><span></span><span></span><span></span></div>
+      <button class="search-cancel" id="btn-cancel-search">Cancelar</button>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- SCREEN 3 — CHAT                 -->
+  <!-- ============================== -->
+  <section class="screen screen-chat" id="screen-chat">
+    <div class="chat-bg" id="chat-bg">
+      <div class="chat-bg-img" id="chat-bg-img"></div>
+      <div class="chat-bg-overlay"></div>
+    </div>
+
+    <header class="chat-topbar" id="chat-topbar">
+      <button class="topbar-back" id="btn-disconnect" title="Desconectar">✕</button>
+      <div class="topbar-info">
+        <span class="topbar-name" id="topbar-name">Anónimo</span>
+        <span class="topbar-city" id="topbar-city">📍 Estado</span>
+      </div>
+      <div class="topbar-status" id="topbar-status">
+        <span class="status-dot"></span>
+        <span id="status-text">En línea</span>
+      </div>
+    </header>
+
+    <div class="scene" id="scene">
+      <div class="scene-ground"></div>
+      <svg class="scene-tree" viewBox="0 0 120 160" fill="none">
+        <rect x="52" y="90" width="16" height="70" rx="4" fill="#5d4037"/>
+        <ellipse cx="60" cy="55" rx="50" ry="45" fill="#2e7d32" opacity="0.85"/>
+        <ellipse cx="40" cy="45" rx="30" ry="28" fill="#388e3c" opacity="0.7"/>
+        <ellipse cx="75" cy="50" rx="28" ry="25" fill="#43a047" opacity="0.6"/>
+        <ellipse cx="60" cy="35" rx="22" ry="20" fill="#4caf50" opacity="0.5"/>
+      </svg>
+      <svg class="scene-bench" viewBox="0 0 100 50" fill="none">
+        <rect x="5" y="15" width="90" height="6" rx="2" fill="#8d6e63"/>
+        <rect x="5" y="25" width="90" height="4" rx="1" fill="#795548"/>
+        <rect x="10" y="29" width="4" height="20" rx="1" fill="#6d4c41"/>
+        <rect x="86" y="29" width="4" height="20" rx="1" fill="#6d4c41"/>
+        <rect x="5" y="5" width="90" height="5" rx="2" fill="#8d6e63"/>
+        <rect x="8" y="0" width="4" height="15" rx="1" fill="#6d4c41"/>
+        <rect x="88" y="0" width="4" height="15" rx="1" fill="#6d4c41"/>
+      </svg>
+      <!-- Stickman LEFT -->
+      <div class="stickman stickman-left idle" id="stickman-left">
+        <svg viewBox="0 0 60 100" fill="none" class="stickman-svg">
+          <circle cx="30" cy="16" r="10" stroke="#00e676" stroke-width="2.5" fill="rgba(0,230,118,0.1)" class="stk-head"/>
+          <circle cx="26" cy="14" r="1.5" fill="#00e676"/><circle cx="34" cy="14" r="1.5" fill="#00e676"/>
+          <path d="M26 19 Q30 23 34 19" stroke="#00e676" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="30" y1="26" x2="30" y2="58" stroke="#00e676" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="30" y1="36" x2="14" y2="48" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" class="stk-arm-l"/>
+          <line x1="30" y1="36" x2="46" y2="48" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" class="stk-arm-r"/>
+          <line x1="30" y1="58" x2="16" y2="82" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" class="stk-leg-l"/>
+          <line x1="30" y1="58" x2="44" y2="82" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" class="stk-leg-r"/>
+        </svg>
+        <span class="stickman-label" id="stickman-left-label">Tú</span>
+      </div>
+      <!-- Stickman RIGHT -->
+      <div class="stickman stickman-right idle" id="stickman-right">
+        <svg viewBox="0 0 60 100" fill="none" class="stickman-svg">
+          <circle cx="30" cy="16" r="10" stroke="#ff9100" stroke-width="2.5" fill="rgba(255,145,0,0.1)" class="stk-head"/>
+          <circle cx="26" cy="14" r="1.5" fill="#ff9100"/><circle cx="34" cy="14" r="1.5" fill="#ff9100"/>
+          <path d="M26 19 Q30 23 34 19" stroke="#ff9100" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="30" y1="26" x2="30" y2="58" stroke="#ff9100" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="30" y1="36" x2="14" y2="48" stroke="#ff9100" stroke-width="2.5" stroke-linecap="round" class="stk-arm-l"/>
+          <line x1="30" y1="36" x2="46" y2="48" stroke="#ff9100" stroke-width="2.5" stroke-linecap="round" class="stk-arm-r"/>
+          <line x1="30" y1="58" x2="16" y2="82" stroke="#ff9100" stroke-width="2.5" stroke-linecap="round" class="stk-leg-l"/>
+          <line x1="30" y1="58" x2="44" y2="82" stroke="#ff9100" stroke-width="2.5" stroke-linecap="round" class="stk-leg-r"/>
+        </svg>
+        <span class="stickman-label" id="stickman-right-label">Anónimo</span>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-system-msg" id="chat-welcome">¡Conectados! 👋</div>
+    </div>
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator" id="typing-indicator" style="display:none">
+      <span class="typing-name" id="typing-name"></span> está escribiendo
+      <span class="typing-dots"><span></span><span></span><span></span></span>
+    </div>
+
+    <div class="chat-bottom">
+      <button class="btn-rps" id="btn-rps" title="Piedra, Papel o Tijera">🎮</button>
+      <div class="chat-input-wrapper">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Escribe un mensaje..." maxlength="500" autocomplete="off">
+      </div>
+      <button class="btn-send" id="btn-send" title="Enviar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- MODAL — Rock Paper Scissors     -->
+  <!-- ============================== -->
+  <div class="modal-overlay" id="rps-modal">
+    <div class="modal-rps">
+      <button class="modal-close" id="rps-close">✕</button>
+      <h3 class="rps-title">🎮 Piedra, Papel o Tijera</h3>
+      <p class="rps-subtitle" id="rps-subtitle">¡Elige tu jugada!</p>
+      <div class="rps-score">
+        <div class="rps-score-player">
+          <span class="rps-score-label">Tú</span>
+          <span class="rps-score-num" id="rps-score-you">0</span>
+        </div>
+        <span class="rps-score-vs">VS</span>
+        <div class="rps-score-player">
+          <span class="rps-score-label" id="rps-score-opp-label">Rival</span>
+          <span class="rps-score-num" id="rps-score-opp">0</span>
+        </div>
+      </div>
+      <div class="rps-arena">
+        <div class="rps-hand" id="rps-hand-you">❓</div>
+        <span class="rps-vs-text">⚡</span>
+        <div class="rps-hand" id="rps-hand-opp">❓</div>
+      </div>
+      <div class="rps-result" id="rps-result"></div>
+      <div class="rps-choices" id="rps-choices">
+        <button class="rps-choice" data-choice="piedra">✊</button>
+        <button class="rps-choice" data-choice="papel">✋</button>
+        <button class="rps-choice" data-choice="tijera">✌️</button>
+      </div>
+      <button class="rps-play-again" id="rps-play-again" style="display:none">🔄 Jugar de nuevo</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
